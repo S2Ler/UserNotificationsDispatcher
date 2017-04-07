@@ -18,4 +18,12 @@ public struct UserNotificationInfo {
     guard let type = aps[rawTypeKey] as? UserNotificationRawType else { return nil }
     return type
   }
+
+  public func apsValue<ValueType>(key: String) -> ValueType? {
+    if let value = aps[key] as? ValueType {
+      return value
+    } else {
+      return nil
+    }
+  }
 }
